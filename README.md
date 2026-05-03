@@ -153,4 +153,84 @@ mejora, reiniciando el ciclo. .
 
 <img width="371" height="208" alt="image" src="https://github.com/user-attachments/assets/23f4f8e2-2996-48dd-9820-fcee387fac0a" />
 
+3. Los Pilares: El Modelo C.A.L.M.S. 
+Para que la metodología funcione, se deben cumplir estos cinco principios: 
+1. Culture (Cultura): Colaboración estrecha. Si algo falla en producción, es 
+responsabilidad de todos, no solo de "el de sistemas". 
+2. Automation (Automatización): Es la clave. Si una tarea se hace más de dos veces, 
+debe automatizarse (scripts de Bash, CI/CD, despliegues automáticos). 
+3. Lean (Bonito): Eliminar lo que no aporta valor. Hacer entregas pequeñas y 
+frecuentes en lugar de una gigante cada seis meses. 
+4. Measurement (Medición): No puedes mejorar lo que no mides. Se usan métricas 
+de rendimiento, errores y tiempo de respuesta. 
+5. Sharing (Compartir): Documentación abierta y comunicación constante. Lo que 
+aprendió un equipo debe servirle al resto.
 
+4. Conceptos Técnicos Clave en DevOps 
+Para aplicar esta metodología en servidores Linux/Debian, debemos escuchar estos 
+términos constantemente: 
+● CI/CD (Integración y Despliegue Continuo):  
+Automatizar el paso del código desde la PC del programador hasta el servidor final 
+sin intervención manual. 
+● IaC (Infraestructura como Código):  
+Definir servidores mediante archivos de texto (ej. Ansible o Terraform). Esto permite 
+que la infraestructura sea replicable y versionable. 
+● Microservicios: 
+En lugar de una aplicación gigante, se dividen en pequeñas piezas que corren de 
+forma independiente (usualmente en contenedores).
+
+En resumen: DevOps se trata de velocidad con seguridad. No sirve de nada entregar rápido 
+si el servidor se cae, ni sirve que el servidor sea estable si tardamos meses en sacar una 
+actualización.
+
+Conceptos Clave de Operación (CLI) 
+cualquier flujo de trabajo de DevOps exitoso, permitiendo pasar de la gestión 
+manual a la automatización a gran escala. Con sus tres pilares que funcionan como un 
+conjunto de herramientas cohesivo, otorga al administrador la visibilidad necesaria para 
+monitorear el estado del sistema, la agilidad para transformar configuraciones mediante 
+código y la capacidad analítica para resolver problemas de conectividad en entornos 
+distribuidos
+Estos son los pilares: 
+● Gestión de Procesos: Cómo ver qué está consumiendo recursos (top, htop) y cómo 
+detener servicios que fallan (systemctl). 
+● Manipulación de Texto: En DevOps, configurar es editar texto. Herramientas como 
+grep (buscar), sed (reemplazar) y awk (procesar datos) son indispensables para 
+automatizar. 
+● Redes Básicas: Entender cómo Linux ve la red (ip addr), cómo prueba conectividad 
+(ping, traceroute) y cómo escucha puertos (netstat o ss). 
+
+Filosofía Open Source y Seguridad 
+
+Es un modelo de desarrollo y licenciamiento basado en cuatro libertades 
+fundamentales: 
+1. Libertad de ejecución: Usar el programa para cualquier propósito. 
+2. Libertad de estudio: Estudiar cómo funciona el programa y adaptarlo (acceso al 
+código fuente). 
+3. Libertad de redistribución: Copiar y distribuir el software para ayudar a otros. 
+4. Libertad de mejora: Mejorar el programa y publicar las mejoras para que toda la 
+comunidad se beneficie. 
+Esta filosofía fomenta la colaboración masiva, la transparencia y la meritocracia técnica.
+
+El Vínculo con la Seguridad: Transparencia vs. Oscuridad 
+La relación entre Open Source y Seguridad se basa en un debate histórico: 
+● Seguridad por Oscuridad (Modelo Propietario) 
+○ Concepto: Se basa en la premisa de que si un atacante no puede ver el 
+código fuente, no puede encontrar sus vulnerabilidades. 
+○ La Realidad: Los atacantes avanzados no necesitan el código fuente; 
+pueden encontrar agujeros mediante ingeniería inversa o analizando el 
+comportamiento del software en ejecución (fuzzing). Cuando se descubre un 
+fallo, los usuarios dependen enteramente de que la empresa propietaria cree 
+y distribuya un parche, lo cual puede llevar tiempo. 
+● Seguridad por Transparencia (Modelo Open Source) 
+○ Concepto: Se basa en la Ley de Linus (formulada por Eric S. Raymond): 
+"Dadas suficientes miradas, todos los errores son superficiales". 
+○ La Realidad: Al exponer el código fuente a todo el mundo, las 
+vulnerabilidades pueden ser descubiertas y parcheadas por la comunidad 
+mucho antes de que puedan ser explotadas masivamente. No dependes de 
+un solo proveedor; la responsabilidad y la capacidad de corrección están 
+distribuidas.
+
+
+¿Por qué utilizar Linux como Sistema Operativo? 
+La adopción de Linux en grandes organizaciones no es solo una cuestión de costos, sino de 
+soberanía tecnológica, estabilidad y seguridad.
