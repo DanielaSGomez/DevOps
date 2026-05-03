@@ -149,6 +149,8 @@ donde Linux es el rey).
 +7. Operate (Operar): Se mantiene el servicio funcionando, escalando recursos si es 
 necesario. 
 8. Monitor (Monitorear): Se analizan logs y métricas para detectar fallos o áreas de 
-mejora, reiniciando el ciclo.
+mejora, reiniciando el ciclo. .
 
 <img width="371" height="208" alt="image" src="https://github.com/user-attachments/assets/23f4f8e2-2996-48dd-9820-fcee387fac0a" />
+
+
