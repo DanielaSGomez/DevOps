@@ -146,7 +146,7 @@ tenga errores.
 5. Release (Liberar): El código está listo para ser desplegado. 
 6. Deploy (Desplegar): El software se instala en el servidor de producción (aquí es 
 donde Linux es el rey).
-+7. Operate (Operar): Se mantiene el servicio funcionando, escalando recursos si es 
+7. Operate (Operar): Se mantiene el servicio funcionando, escalando recursos si es 
 necesario. 
 8. Monitor (Monitorear): Se analizan logs y métricas para detectar fallos o áreas de 
 mejora, reiniciando el ciclo. .
