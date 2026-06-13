@@ -1,0 +1,228 @@
+# Docker - Conceptos Básicos
+
+## ¿Qué es Docker?
+
+Docker es una plataforma basada en contenedores que permite empaquetar una aplicación junto con todas sus dependencias, configuraciones y herramientas necesarias para ejecutarse correctamente.
+
+Su principal ventaja es la **portabilidad**, ya que una aplicación puede ejecutarse de la misma manera en distintos entornos, desde la computadora del desarrollador hasta servidores de producción.
+
+---
+
+## Dockerfile
+
+Un Dockerfile es un archivo de texto que contiene las instrucciones necesarias para construir una imagen Docker.
+
+A partir de un Dockerfile se genera una imagen que luego podrá utilizarse para crear contenedores.
+
+Ejemplo:
+
+dockerfile
+FROM nginx
+
+
+---
+
+## Imagen
+
+Una imagen es una plantilla inmutable que contiene todo lo necesario para ejecutar una aplicación.
+
+Podemos pensar en una imagen como una clase en Programación Orientada a Objetos.
+
+
+Dockerfile
+    ↓
+Imagen
+
+---
+## Contenedor
+
+Un contenedor es una instancia en ejecución de una imagen.
+
+Siguiendo la analogía con POO:
+
+Clase   → Imagen
+Objeto  → Contenedor
+
+
+Un mismo contenedor puede crearse múltiples veces a partir de una misma imagen.
+
+Imagen nginx
+      ↓
+Contenedor 1
+Contenedor 2
+Contenedor 3
+
+---
+## Docker Hub
+
+Docker Hub es el repositorio oficial de Docker.
+
+Al igual que GitHub almacena código fuente, Docker Hub almacena imágenes de contenedores.
+
+Desde Docker Hub podemos descargar imágenes populares como:
+
+* Nginx
+* Apache HTTP Server
+* Python
+* MySQL
+* PostgreSQL
+* Redis
+
+También podemos publicar nuestras propias imágenes.
+---
+## Registry
+
+Un Registry es un repositorio de imágenes de contenedores.
+
+Docker Hub es el registry oficial de Docker, pero existen otros como:
+
+* GitHub Container Registry
+* Azure Container Registry
+* Amazon ECR
+* Google Artifact Registry
+
+---
+
+## Docker Daemon
+
+El Docker Daemon (`dockerd`) es un servicio que se ejecuta en segundo plano y se encarga de gestionar todo lo relacionado con Docker.
+
+Entre sus responsabilidades se encuentran:
+
+* Descargar imágenes.
+* Crear contenedores.
+* Iniciar y detener contenedores.
+* Gestionar redes.
+* Gestionar volúmenes.
+* Construir imágenes.
+
+Cuando ejecutamos un comando Docker, la CLI envía la solicitud al Docker Daemon y este realiza el trabajo.
+
+Docker CLI
+      ↓
+Docker Daemon
+      ↓
+Contenedores e Imágenes
+
+---
+
+## Descargar imágenes
+
+Para descargar una imagen desde Docker Hub:
+
+docker pull nginx
+docker pull httpd
+
+---
+
+## Ejecutar contenedores
+
+Para crear y ejecutar un contenedor:
+
+docker run nginx
+
+Si la imagen no existe localmente, Docker la descargará automáticamente desde Docker Hub.
+
+---
+
+## Mapeo de puertos
+
+Las aplicaciones dentro de un contenedor utilizan una red aislada.
+
+Por ejemplo, Nginx escucha peticiones en el puerto 80 dentro del contenedor.
+
+Para acceder a la aplicación desde nuestra computadora debemos mapear un puerto del host hacia un puerto del contenedor utilizando el parámetro `-p`.
+
+docker run -p 8080:80 nginx
+
+Donde:
+
+* `8080` → Puerto de nuestra computadora (Host).
+* `80` → Puerto del contenedor.
+
+Formato:
+
+HOST:CONTENEDOR
+
+Accediendo a:
+
+http://localhost:8080
+
+Docker redirige la petición al puerto 80 del contenedor.
+
+---
+
+## Ejecutar múltiples contenedores
+
+Podemos ejecutar varios contenedores simultáneamente utilizando diferentes puertos del host.
+
+docker run -d -p 8080:80 --name nginx-server nginx
+
+docker run -d -p 8081:80 --name apache-server httpd
+
+Resultado:
+
+localhost:8080 → Nginx
+localhost:8081 → Apache
+
+Ambos contenedores utilizan internamente el puerto 80, pero no existe conflicto porque cada contenedor posee su propia red aislada.
+
+---
+
+## Ejecutar en segundo plano
+
+Para ejecutar un contenedor en segundo plano utilizamos el parámetro `-d` (detached mode):
+
+docker run -d -p 8080:80 nginx
+
+Esto permite recuperar inmediatamente la terminal mientras el contenedor continúa ejecutándose.
+
+---
+
+## Comandos útiles
+
+Ver contenedores en ejecución:
+
+docker ps
+
+Ver todos los contenedores:
+
+docker ps -a
+
+
+Ver imágenes descargadas:
+
+docker images
+
+Detener un contenedor:
+
+docker stop <container_id>
+
+Iniciar un contenedor detenido:
+
+docker start <container_id>
+
+Eliminar un contenedor:
+
+docker rm <container_id>
+
+Ver logs:
+
+docker logs <container_id>
+
+---
+
+## Conceptos clave para recordar
+
+Dockerfile → Imagen → Contenedor
+
+Docker Hub → Registry de imágenes
+
+Docker CLI → Docker Daemon → Contenedor
+
+HOST:CONTENEDOR
+
+Imagen = Plantilla
+Contenedor = Instancia en ejecución
+
+DanielaSGomez - 2026
